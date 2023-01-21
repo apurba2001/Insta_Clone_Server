@@ -18,9 +18,9 @@ app.post('/create-post', upload, uploadToS3, async (req, res) => {
     console.log('okey done')
     console.log(req.body)
     const date = String(Date()).slice(4, 16)
-    const likes = Math.ceil(Math.random()*100)
+    const likes = Math.ceil(Math.random() * 100)
     try {
-        await posts.create({...req.body, date, likes})
+        await posts.create({ ...req.body, date, likes })
         res.status(302).redirect('/posts')
     } catch (error) {
         console.error(error);
